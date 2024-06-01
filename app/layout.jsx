@@ -16,8 +16,10 @@ export default function RootLayout({ children }) {
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-bold-rounded/css/uicons-bold-rounded.css'></link>
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-regular-rounded/css/uicons-regular-rounded.css'></link>
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-bold-straight/css/uicons-bold-straight.css'></link>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-solid-rounded/css/uicons-solid-rounded.css'></link>
       </head>
-        <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{children}
+      </body>
     </html>
   );
 }

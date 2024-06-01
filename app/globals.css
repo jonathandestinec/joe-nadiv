@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: rgb(240, 244, 233);
+  background-color: #f0f4e9;
   margin: 0;
   padding: 0;
 }
@@ -16,8 +16,13 @@ body {
 
 .mdNavBar {
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(5.5px);
-  -webkit-backdrop-filter: blur(5.5px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(240, 244, 233, 0.5);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.imageCircle {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
 }
