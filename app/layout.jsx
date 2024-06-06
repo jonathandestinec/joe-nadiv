@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { BrowserRouter } from "react-router-dom";
+import Navigation from "@/components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +18,14 @@ export default function RootLayout({ children }) {
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-regular-rounded/css/uicons-regular-rounded.css'></link>
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-bold-straight/css/uicons-bold-straight.css'></link>
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-solid-rounded/css/uicons-solid-rounded.css'></link>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-brands/css/uicons-brands.css'></link>
       </head>
-      <body className={inter.className}>{children}
+      <body className={inter.className}>
+        {/* Naviation */}
+
+        <Navigation></Navigation>
+
+        {children}
       </body>
     </html>
   );

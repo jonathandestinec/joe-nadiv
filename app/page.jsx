@@ -3,10 +3,10 @@
 import React from 'react'
 import { Inter, Montserrat, Poppins, Ubuntu } from 'next/font/google'
 import { useEffect, useRef } from 'react'
-import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { motion, useScroll } from 'framer-motion'
 import { Input } from '@/components/ui/input'
+import Navigation from '@/components/Navigation'
 
 
 const inter = Inter({ weight: ["400", "500", "600"], subsets: ["latin"] })
@@ -16,59 +16,13 @@ const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["500"] })
 
 function page() {
 
-  const currentPath = usePathname()
-
   const { scrollYProgress } = useScroll()
-
-  const navLinks = [
-    { url: "/#about", text: "About" },
-    { url: "/#services", text: "Services" },
-    { url: "/#real-estate", text: "Real Estate" },
-    { url: "/#cars", text: "Cars" }
-  ]
 
   return (
 
     <div className=' relative overflow-hidden'>
 
       <div className=' md:p-20 md:pt-0 relative p-14 pt-0'>
-
-        {/* Nav Desktop/Mobile */}
-        <div className=' w-full md:h-20 h-16 fixed top-0 z-10 md:p-20 md:pt-0 left-0 flex items-center justify-between mdNavBar md:pb-0 p-7'>
-
-          <div className=' w-max h-full flex items-center justify-center gap-3 cursor-pointer p-3 pt-0 pb-0 rounded-b-xl iconContainer bg-transparent'>
-
-            <i className="fi fi-br-fingerprint md:text-black text-black md:text-2xl text-3xl flex items-center justify-center"></i>
-
-            <h1 className={`${poppins.className} text-lg font-medium text-black md:block hidden`}>JNC</h1>
-
-            <h1 className={`${poppins.className} text-xl font-medium text-black md:hidden block`}>JNC</h1>
-
-          </div>
-
-          {/* Links */}
-
-          <div className=' md:flex items-center justify-evenly gap-24 hidden'>
-            {
-              navLinks.map((link, k) => {
-                return (
-                  <a href={`${link.url}`} className={`${poppins.className} text-sm hover:text-blue-700 ease-in-out transition duration-75 ${currentPath == link.url ? "text-blue-700" : "text-black"}`} key={k}>{link.text}</a>
-                )
-              })
-            }
-          </div>
-
-          {/* Nav Buttons */}
-
-          <div className=' md:block hidden'>
-            <a href="/contact" className={`${poppins.className} p-7 rounded-md bg-black text-white pt-3 pb-3 text-sm`}>Contact Us</a>
-          </div>
-
-          {/* Hamburger Btn */}
-
-          <i className="fi fi-br-bars-staggered md:hidden text-3xl text-black"></i>
-
-        </div>
 
         {/* Main Page */}
 
@@ -138,13 +92,13 @@ function page() {
       </div>
 
       {/* Services Container Cars */}
-      <div className=' h-max p-10 box-border md:mt-10 mt-0 md:grid md:grid-cols-2 gap-5 place-items-center relative'>
+      <div className=' h-max md:p-10 p-5 box-border md:mt-10 mt-0 md:grid md:grid-cols-2 gap-5 place-items-center relative'>
 
         <div className='servicesImgContainer w-full cars relative md:p-20 p-10 mb-16 col-span-1 h-max'>
 
           <motion.div
             className="img"
-            whileInView={{ filter: "brightness(50%)", scale: 1.2 }}
+            whileInView={{ scale: 1.2 }}
             initial={{ filter: "blur(0px) brightness(100%)", scale: 1 }}
             transition={{ type: "just" }}
           ></motion.div>
@@ -169,7 +123,7 @@ function page() {
 
           <motion.div
             className="img"
-            whileInView={{ filter: "brightness(50%)", scale: 1.2 }}
+            whileInView={{ scale: 1.2 }}
             initial={{ filter: "blur(0px) brightness(100%)", scale: 1 }}
             transition={{ type: "just" }}
           ></motion.div>
@@ -194,7 +148,7 @@ function page() {
 
           <motion.div
             className="img"
-            whileInView={{ filter: "brightness(50%)", scale: 1.2 }}
+            whileInView={{ scale: 1.2 }}
             initial={{ filter: "blur(0px) brightness(100%)", scale: 1 }}
             transition={{ type: "just" }}
           ></motion.div>
@@ -219,7 +173,7 @@ function page() {
 
           <motion.div
             className="img"
-            whileInView={{ filter: "brightness(50%)", scale: 1.2 }}
+            whileInView={{ scale: 1.2 }}
             initial={{ filter: "blur(0px) brightness(100%)", scale: 1 }}
             transition={{ type: "just" }}
           ></motion.div>
@@ -242,16 +196,16 @@ function page() {
 
       {/* Footer */}
 
-      <div className=' w-screen h-screen relative mt-10 p-0'>
+      <div className=' w-screen h-screen relative m-0 p-0'>
 
-        <div className="top-1/2 left-1/2 absolute -z-10 -translate-x-1/2 -translate-y-1/2">
+        <div className="top-1/2 left-1/2 absolute -translate-x-1/2 -translate-y-1/2 w-full p-10 box-border">
 
           <motion.h1
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, type: "just" }}
             className={`text-black ${montserrat.className} font-bold text-5xl text-center mt-10`}
-          >Collaborate with us now</motion.h1>
+          >For more inquiries</motion.h1>
 
           {/* Email and social */}
 
@@ -259,13 +213,35 @@ function page() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, type: "just" }}
-            className=' flex items-center justify-between gap-5 mt-10 ml-auto mr-auto w-full bg-red-500'
+            className='socialContianer md:pt-10 h-max md:pb-10 w-full md:w-3/6 ml-auto mr-auto mt-10 p-10 md:p-0 rounded-2xl border-l-2 border-t-2 border-r-2 border-b-2 border-black'
           >
-            <Input type="email" placeholder="Email" className="pt-3 pb-3 w-3/5" />
+            <div
+              className=' md:flex items-center justify-between gap-5 ml-auto mr-auto md:w-4/5 block w-full mb-10'
+            >
+              <Input type="email" placeholder="Email" className="pt-3 pb-3 md:w-4/6 w-full bg-transparent ring-1 ring-black" />
 
-            {/* Button */}
-            <div className=' w-2/5'>
-              <a href="/contact" className={`${poppins.className} p-5 rounded-md bg-black text-white pt-3 pb-3 text-sm`}>Send Email</a>
+              {/* Button */}
+              <a href="/contact" className={`${poppins.className} p-5 rounded-md bg-black text-white pt-3 pb-3 text-sm md:w2/6 w-full text-center md:m-0 ml-auto mr-auto mt-5 block md:w-2/6`}>
+                <div>Contact us</div>
+              </a>
+
+
+            </div>
+
+            <div
+              className='flex items-center justify-between ml-auto mr-auto md:w-1/2 md:gap-0 gap-5 w-max'
+            >
+              <a href="" className=' text-xl'>
+                <i className="fi fi-brands-facebook text-black text-4xl"></i>
+              </a>
+
+              <a href="">
+                <i className="fi fi-brands-whatsapp text-black text-4xl"></i>
+              </a>
+
+              <a href="">
+                <i className="fi fi-sr-phone-call text-black text-4xl"></i>
+              </a>
             </div>
 
           </motion.div>
